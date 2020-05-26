@@ -2,34 +2,44 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Ingresar Libro</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
 </head>
 <body>
+<h1 class="text-center">Biblioteca N-Capas</h1>
+<br>
+<h2 class="text-center">Ingresar Libro</h2>
+<br>
+
 		<form  th:action="@{/newLibro}" th:object="${libro}" method="post">
-				<span class="contact100-form-title"> Nuevo Libro </span>
+		<div class="form-group">
+				
 				<br>
 			<lable>titulo</lable>
-					<span class="label-input100" th:errors="*{titulo}"
-						style="color: #FF0000; "></span> <input
-						class="input100" th:field="*{titulo}" type="text" name="titulo">		
+					<span th:errors="*{titulo}"></span> <input
+						 th:field="*{titulo}" type="text" name="titulo"
+						 class="form-control" 
+						 placeholder="Ingrese titulo">		
 				
 				<br>
 			<lable>Autor</lable>
-					<span class="label-input100" th:errors="*{autor}"
-						style="color: #FF0000; "></span> <input
-						class="input100" th:field="*{autor}" type="text" name="autor">
-						
-		
-				
+					<span th:errors="*{autor}"></span> <input
+						th:field="*{autor}" type="text" name="autor"
+						class="form-control" 
+						 placeholder="Ingrese Autor">
+											
 			<br>
 			<lable>ISBN</lable>
-					<span class="label-input100" th:errors="*{isbn}"
-						style="color: #FF0000; "></span> <input
-						class="input100" th:field="*{isbn}" type="text" name="isbn">
+					<span th:errors="*{isbn}"
+						></span> <input
+						 th:field="*{isbn}" type="text" name="isbn"
+						class="form-control" 
+						 placeholder="Ingrese titulo">
 						
 						
 				<br>
-			<lable>Categoria</lable>
+			
 				<label for="categoriaBox">Categoria</label>
 				<select th:field="*{categoria.codigo}" name="categoriaBox">
 					<option th:each ="impo: ${ListCategoria}" th:value="${impo.codigo}"
@@ -37,13 +47,14 @@
 					</option>
 				</select>
 				
-				
+				<br>
 				
 				<label for="estado">Estado</label>	
 				<input type="checkbox" th:field="*{estado}" name="estado">
 			
 				
 				<input type="submit" class="btn btn-outline-light" value="Guardar">
+				</div>
 	</form>
 </body>
 </html>
