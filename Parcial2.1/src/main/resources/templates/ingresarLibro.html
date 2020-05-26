@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+		<form  th:action="@{/newLibro}" th:object="${libro}" method="post">
+				<span class="contact100-form-title"> Nuevo Libro </span>
+				<br>
+			<lable>titulo</lable>
+					<span class="label-input100" th:errors="*{titulo}"
+						style="color: #FF0000; "></span> <input
+						class="input100" th:field="*{titulo}" type="text" name="titulo">		
+				
+				<br>
+			<lable>Autor</lable>
+					<span class="label-input100" th:errors="*{autor}"
+						style="color: #FF0000; "></span> <input
+						class="input100" th:field="*{autor}" type="text" name="autor">
+						
+		
+				
+			<br>
+			<lable>ISBN</lable>
+					<span class="label-input100" th:errors="*{isbn}"
+						style="color: #FF0000; "></span> <input
+						class="input100" th:field="*{isbn}" type="text" name="isbn">
+						
+						
+				<br>
+			<lable>Categoria</lable>
+				<label for="categoriaBox">Categoria</label>
+				<select th:field="*{categoria.codigo}" name="categoriaBox">
+					<option th:each ="impo: ${ListCategoria}" th:value="${impo.codigo}"
+							th:text ="${impo.categoria}">
+					</option>
+				</select>
+				
+				
+				
+				<label for="estado">Estado</label>	
+				<input type="checkbox" th:field="*{estado}" name="estado">
+			
+				
+				<input type="submit" class="btn btn-outline-light" value="Guardar">
+	</form>
+</body>
+</html>

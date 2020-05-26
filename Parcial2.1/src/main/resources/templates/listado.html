@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<table >
+		<thead>
+			<th >Codigo</th>
+			<th >Titulo</th>
+			<th >Autor</th>
+			<th >ISBN</th>
+			<th >Categoria</th>
+			<th >Fecha ingreso</th>
+			<th >Estado</th>
+		</thead>
+		<th:block th:each="l, row: ${libros}">
+			<tr>
+				
+					<td  th:text="${l.codigo}"/>
+					<td  th:text="${l.titulo}"/>
+					<td  th:text="${l.autor}"/>
+					<td  th:text="${l.isbn}"/>
+					<td  th:text="${l.categoria.categoria}"/>
+					<td  th:text="${#dates.format(e.fecha, 'dd/MMM/yyyy hh:mm a')}"/>
+					<td  th:text="${l.estadoDelegate}"/>
+				
+			</tr>
+		</th:block>
+	</table>
+</body>
+</html>

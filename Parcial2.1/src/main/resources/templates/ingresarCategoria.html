@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form  th:action="@{/newCategoria}" th:object="${categoria}" method="post">
+				<span > Nueva Categoria </span>
+			
+					<span class="label-input100" th:errors="*{categoria}"
+						style="color: #FF0000; font-size: 12px"></span> <input
+						class="input100" th:field="*{categoria}" type="text" name="categoria"
+						>
+				
+				
+				<input type="submit"  value="Guardar Categoria">
+	</form>
+</body>
+</html>
